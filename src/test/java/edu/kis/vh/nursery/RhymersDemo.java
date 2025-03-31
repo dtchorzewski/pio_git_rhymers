@@ -8,7 +8,15 @@ class RhymersDemo {
     public static void main(String[] args) {
         RhymersFactory factory = new DefaultRhymersFactory();
 
-        DefaultCountingOutRhymer[] rhymers = { factory.getStandardRhymer(), factory.getFalseRhymer(),
+        DefaultCountingOutRhymer[] rhymers = getDefaultCountingOutRhymers(factory);
+
+        System.out.println("total rejected is "
+                + ((HanoiRhymer) rhymers[3]).reportRejected());
+
+    }
+
+    private static DefaultCountingOutRhymer[] getDefaultCountingOutRhymers(RhymersFactory factory) {
+        DefaultCountingOutRhymer[] rhymers = {factory.getStandardRhymer(), factory.getFalseRhymer(),
                 factory.getFIFORhymer(), factory.getHanoiRhymer()};
 
         for (int i = 1; i < 15; i++)
@@ -24,10 +32,7 @@ class RhymersDemo {
                 System.out.print(rhymers[i].countOut() + "  ");
             System.out.println();
         }
-
-        System.out.println("total rejected is "
-                + ((HanoiRhymer) rhymers[3]).reportRejected());
-
+        return rhymers;
     }
 
-}
+}//kod jest poprawny
