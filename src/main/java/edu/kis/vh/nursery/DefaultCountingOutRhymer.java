@@ -8,11 +8,15 @@ public class DefaultCountingOutRhymer {
 
     private final int[] numbers = new int[NUMBERS_SIZE];
 
-    public int total = EMPTY;
+    private int total = EMPTY;
 
     public void countIn(int in) {
         if (!isFull())
             numbers[++total] = in;
+    }
+
+    public int getTotal() {
+        return total;
     }
 
     public boolean callCheck() {
